@@ -14,6 +14,15 @@ body.dark-mode {
   background-color: #545353;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 .rhap_container {
     backdrop-filter: blur(1px);

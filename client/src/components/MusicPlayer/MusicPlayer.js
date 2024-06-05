@@ -9,15 +9,15 @@ import SongCard from '../SongTile/SongTile'
 
 const MusicPlayer = () => {
     const dispatch = useDispatch()
-    const { song } = useSelector((state) => state.player)
+    const { songPlaying } = useSelector((state) => state.player)
     const handleClose = () => {
         dispatch(playPause(false))
         dispatch(playSong(null))
     }
     return (
         <Container sx={{position: 'fixed', bottom: 0, right: 0, left: 0, display: 'flex'}}>
-            <SongCard song={song} h={100} w={100} />
-            <AudioPlayer src={song?.songURL} autoPlay={true} onPlay={() => (console.log('playing'))} />
+            <SongCard song={songPlaying} h={100} w={100} />
+            <AudioPlayer src={songPlaying?.songURL} autoPlay={true} onPlay={() => (console.log('playing'))} />
             <IconButton onClick={handleClose}>
                 <CloseIcon sx={{ color: 'secondary.dark'}} />
             </IconButton>

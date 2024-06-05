@@ -23,17 +23,17 @@ export const useStyles = () => {
         fileInput: {
             '--Grid-borderWidth': '1px',
             border: 'var(--Grid-borderWidth) solid',
-            borderColor: 'secondary.dark',
+            borderColor: '#000000',
             borderRadius: 2,
-            color: 'secondary.dark',
+            color: '#000000',
             backgroundColor: 'secondary.main',
         },
         submit: {
             '--Grid-borderWidth': '1px',
             border: 'var(--Grid-borderWidth) solid',
-            borderColor: 'secondary.dark',
+            borderColor: '#000000',
             borderRadius: 2,
-            color: 'secondary.dark',
+            color: '#000000',
             backgroundColor: 'secondary.main',
             my: 3,
         }

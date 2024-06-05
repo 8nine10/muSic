@@ -45,7 +45,15 @@ const Navbar = () => {
         navigate('/');
         setUser(null);
     }
-
+    const handleUserRedirect = (id) => {
+        setAnchorElUser(null);
+        navigate(`/${user.user._id}`)
+    }
+    const handleUploadRedirect = (id) => {
+        setAnchorElUser(null);
+        navigate(`/songupload`)
+    }
+    
     useEffect(() => {
         const token = user?.token
         if (token) {
@@ -125,6 +133,12 @@ const Navbar = () => {
                             >
                                 <MenuItem sx={{ backgroundColor: 'secondary.dark', color: 'primary.dark' }} onClick={handleProfile}>
                                     <Typography textAlign="center">Profile</Typography>
+                                </MenuItem>
+                                <MenuItem sx={{ backgroundColor: 'secondary.dark', color: 'primary.dark' }} onClick={handleUserRedirect}>
+                                    <Typography textAlign="center">My Uploads</Typography>
+                                </MenuItem>
+                                <MenuItem sx={{ backgroundColor: 'secondary.dark', color: 'primary.dark' }} onClick={handleUploadRedirect}>
+                                    <Typography textAlign="center">Upload muSic</Typography>
                                 </MenuItem>
                                 <MenuItem sx={{ backgroundColor: 'secondary.dark', color: 'primary.dark' }} onClick={logout}>
                                     <Typography textAlign="center">Logout</Typography>
