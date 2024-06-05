@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useStyles } from './styles'
-import { Paper, Container, Grid, CardMedia, Typography } from '@mui/material'
+import { Paper, Container, Grid, CardMedia, Typography, Box, CircularProgress } from '@mui/material'
 import SongCard from '../SongTile/SongTile'
 import moment from 'moment'
 import { getUser } from '../../actions/auth'
@@ -23,7 +23,17 @@ const UserPage = () => {
     if (!isNaN(Number(user?.data?.createdAt))) {
         date = date.toISOString();
     }
+    const { isLoading } = useSelector((state) => state.auth)
+
     
+    if (isLoading) {
+        return (
+            <Box display="flex" justifyContent="center" my={4}>
+                <CircularProgress sx={{ color: 'primary.main'}} />
+            </Box>
+        );
+    }
+
     return (
         <Container sx={classes.container}>
             <Paper sx={classes.paper}>

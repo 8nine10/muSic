@@ -27,14 +27,16 @@ const SongCard = ({ song, h = 200, w = 270, del=false }) => {
 
   const handleLike = (e) => {
     e.stopPropagation()
-    if (isLiked) {
-      setIsLiked(false)
-      setLikesC(likesC - 1)
-    } else {
-      setIsLiked(true)
-      setLikesC(likesC + 1)
+    if (user) {
+      if (isLiked) {
+        setIsLiked(false)
+        setLikesC(likesC - 1)
+      } else {
+        setIsLiked(true)
+        setLikesC(likesC + 1)
+      }
+      dispatch(likeSong(song._id, navigate));
     }
-    dispatch(likeSong(song._id, navigate));
   };
 
   const handleDelete = async(e) => {

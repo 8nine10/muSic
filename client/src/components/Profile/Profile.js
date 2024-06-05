@@ -63,7 +63,7 @@ const Profile = () => {
 
       {isLoading ? (
         <Grid container justifyContent="center" alignItems="center" style={{ height: '50vh' }}>
-          <CircularProgress />
+          <CircularProgress sx={{ color: 'primary.main'}} />
         </Grid>
       ) : (
         <Paper sx={classes.paper}>

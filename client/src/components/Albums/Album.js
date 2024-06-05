@@ -23,7 +23,7 @@ const Album = () => {
             <Paginate albumPage={page} />
             {isLoading ? (
                 <Grid container justifyContent="center" alignItems="center" style={{ height: '50vh' }}>
-                    <CircularProgress />
+                    <CircularProgress sx={{ color: 'primary.main'}} />
                 </Grid>
             ) : (<>
                 {albums && albums.length > 0 ? (

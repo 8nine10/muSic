@@ -1,5 +1,5 @@
 import * as api from '../api/index.js'
-import { AUTH, GET_USER } from '../constants/actionTypes.js';
+import { AUTH, GET_USER, START_LOADING, STOP_LOADING } from '../constants/actionTypes.js';
 
 export const signIn = (formData, navigate) => async(dispatch) => {
     try {
@@ -25,10 +25,13 @@ export const signUp = (formData, navigate) => async(dispatch) => {
 
 export const getUser = (id, navigate) => async(dispatch) => {
     try {
+        dispatch({ type: START_LOADING})
         const { data } = await api.getUser(id)
         dispatch({ type: GET_USER, payload: data})
     } catch (error) {
         console.log(error)
         navigate('/error')
+    } finally {
+        dispatch({ type: STOP_LOADING})
     }
 }

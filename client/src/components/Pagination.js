@@ -26,7 +26,7 @@ const Paginate = ({page = false, albumPage = false}) => {
     if (isLoading) {
         return (
             <Box display="flex" justifyContent="center" my={4}>
-                <CircularProgress />
+                <CircularProgress sx={{ color: 'primary.main'}} />
             </Box>
         );
     }

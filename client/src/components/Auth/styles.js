@@ -3,8 +3,8 @@ export const useStyles = () => {
         paper: {
             my: 3,
             backgroundColor: 'secondary.main',
-            p: 4,
-            px: 10,
+            p: {xs: 2, md: 4},
+            px: {xs: 2, md: 10},
         },
         heading: {
             mb: 4,

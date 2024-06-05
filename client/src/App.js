@@ -13,12 +13,20 @@ import { useSelector } from 'react-redux'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import Album from './components/Albums/Album'
 import Error from './components/Error'
+import { useTheme } from './ThemeContext'
 
 
 const App = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const location = useLocation()
     const { isPlaying } = useSelector((state) => state.player)
+
+    const { isDarkMode } = useTheme();
+
+    useEffect(() => {
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        document.body.classList.toggle('light-mode', !isDarkMode);
+    }, [isDarkMode]);
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile')));

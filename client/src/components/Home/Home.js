@@ -24,7 +24,7 @@ const Home = () => {
 
       {isLoading ? (
         <Grid container justifyContent="center" alignItems="center" style={{ height: '50vh' }}>
-          <CircularProgress />
+          <CircularProgress sx={{ color: 'primary.main'}} />
         </Grid>
         ) : (
         <Grid container spacing={3}>

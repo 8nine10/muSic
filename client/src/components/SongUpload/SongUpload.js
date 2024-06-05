@@ -35,7 +35,7 @@ const SongUpload = () => {
   
     return (
       <Container>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} direction='column'>
           <Grid container item xs={12} sm={12} md={6} lg={6} direction='column' justifyContent='center' alignItems='center' spacing={1}>
             <Paper sx={classes.paper}>
               <Grid sx={{ my: 3 }} container item direction='row' spacing={2} justifyContent='center'>
@@ -121,11 +121,11 @@ const SongUpload = () => {
           <Grid item container xs={12} sm={12} md={6} lg={6} direction='column' justifyContent='center' alignItems='center'>
           {isLoading ? (
               <Grid container justifyContent="center" alignItems="center" style={{ height: '50vh' }}>
-                <CircularProgress />
+                <CircularProgress sx={{ color: 'primary.main'}} />
               </Grid>
             ) : (
               <Paper sx={classes.paper}>
-               <Typography variant='h3' sx={{ color: 'primary.dark', my: 3 }}>Your Uploads :</Typography>
+               <Typography variant='h3' sx={{ color: 'primary.dark', my: 3 }}>Uploads:</Typography>
                 <Grid container direction='row' spacing={2} item>
                 {uploadedSongs && uploadedSongs.length > 0 ? (
                   uploadedSongs.map((song) => (

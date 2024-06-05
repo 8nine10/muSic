@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Toolbar, Typography, Container, Box, IconButton, Menu, MenuItem, Button, Avatar, Tooltip } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useStyles } from './styles'
 import { jwtDecode } from 'jwt-decode'
 import { LOGOUT } from '../../constants/actionTypes'
+import { useTheme } from '../../ThemeContext'
 
 
 const Navbar = () => {
@@ -16,6 +19,7 @@ const Navbar = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { isDarkMode, toggleTheme } = useTheme();
 
     const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
     const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
@@ -97,6 +101,10 @@ const Navbar = () => {
                             Albums
                         </Button>
                     </Box>
+                    
+                    <Button color='inherit' onClick={toggleTheme}>
+                        {isDarkMode ? <DarkModeIcon /> : <LightModeIcon />}
+                    </Button>
 
                     {user ? (
                         <Box sx={{ flexGrow: 0 }}>
